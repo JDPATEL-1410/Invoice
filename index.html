@@ -1,4 +1,3 @@
-<xaiArtifact artifact_id="47d9bd0d-c448-4577-b5e0-25d34f054e80" artifact_version_id="da5cb6ca-f4d4-489f-a630-f782de6fec20" title="index.html" contentType="text/html">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,6 +74,30 @@
             text-transform: uppercase;
         }
 
+        table th:nth-child(1), table td:nth-child(1) { /* Usage Date */
+            width: 15%;
+        }
+
+        table th:nth-child(2), table td:nth-child(2) { /* Description */
+            width: 35%;
+        }
+
+        table th:nth-child(3), table td:nth-child(3) { /* Qty */
+            width: 15%;
+        }
+
+        table th:nth-child(4), table td:nth-child(4) { /* Rate */
+            width: 15%;
+        }
+
+        table th:nth-child(5), table td:nth-child(5) { /* Amount */
+            width: 15%;
+        }
+
+        table th:nth-child(6), table td:nth-child(6) { /* Actions */
+            width: 5%;
+        }
+
         table input {
             font-size: 0.8rem;
             padding: 0.3rem;
@@ -145,19 +168,19 @@
         @media print {
             @page {
                 size: A4;
-                margin: 0.5in;
+                margin: 0.3in;
             }
 
             body {
-                font-size: 10px !important;
-                line-height: 1.2 !important;
+                font-size: 8px !important;
+                line-height: 1.1 !important;
                 color: #000 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
 
             .container {
-                width: 7in !important; /* A4 width minus margins */
+                width: 7.4in !important;
                 margin: 0 auto !important;
                 padding: 0 !important;
                 box-shadow: none !important;
@@ -170,79 +193,79 @@
 
             .boxed-section {
                 border: 1px solid #000 !important;
-                padding: 8px !important;
+                padding: 4px !important;
                 background-color: #fff !important;
-                margin-bottom: 8px !important;
+                margin-bottom: 4px !important;
             }
 
             .print-header {
-                margin-bottom: 8px !important;
-                padding-bottom: 8px !important;
+                margin-bottom: 4px !important;
+                padding-bottom: 4px !important;
                 border-bottom: 1px solid #000 !important;
                 text-align: center !important;
             }
 
             .print-header h1 {
-                font-size: 18px !important;
+                font-size: 14px !important;
                 margin: 0 auto !important;
             }
 
             .flexbox-grid {
-                gap: 4px !important;
+                gap: 2px !important;
             }
 
             input, textarea {
                 border: none !important;
                 background: transparent !important;
                 padding: 0 !important;
-                font-size: 9px !important;
+                font-size: 7px !important;
                 border-bottom: 1px solid #000 !important;
                 width: 100% !important;
                 display: inline-block !important;
             }
 
             label {
-                font-size: 8px !important;
+                font-size: 7px !important;
                 font-weight: 600 !important;
                 display: block !important;
             }
 
             table {
-                font-size: 8px !important;
-                margin: 8px 0 !important;
+                font-size: 7px !important;
+                margin: 4px 0 !important;
                 border: 1px solid #000 !important;
                 width: 100% !important;
             }
 
             table th, table td {
-                padding: 3px !important;
+                padding: 2px !important;
                 border: 1px solid #000 !important;
             }
 
             table th {
-                font-size: 7px !important;
+                font-size: 6px !important;
                 background-color: #f3f4f6 !important;
             }
 
             table input {
-                font-size: 8px !important;
+                font-size: 7px !important;
             }
 
             .total-section {
-                font-size: 10px !important;
+                font-size: 8px !important;
                 text-align: right !important;
-                margin-top: 8px !important;
+                margin-top: 4px !important;
             }
 
             .total-section > div {
-                width: 30% !important;
+                width: 40% !important;
                 margin-left: auto !important;
             }
 
             .print-footer {
-                font-size: 8px !important;
+                font-size: 7px !important;
                 text-align: center !important;
-                margin-top: 10px !important;
+                margin-top: 5px !important;
             }
         }
     </style>
@@ -380,6 +403,15 @@
                     class="w-full p-1.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                 ></textarea>
             </div>
+            <div class="grid-full space-y-1">
+                <label for="vehicleNumber" class="text-sm font-medium text-gray-600">Vehicle Number</label>
+                <input
+                    type="text"
+                    id="vehicleNumber"
+                    name="vehicleNumber"
+                    class="w-full p-1.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
         </div>
 
         <!-- Usage Entries Table -->
@@ -389,7 +421,7 @@
                     <tr>
                         <th class="py-2 px-3">Usage Date</th>
                         <th class="py-2 px-3">Description</th>
-                        <th class="py-2 px-3">Qty (Hrs/Days)</th>
+                        <th class="py-2 px-3">Qty (Bigha/Hours)</th>
                         <th class="py-2 px-3">Rate</th>
                         <th class="py-2 px-3">Amount</th>
                         <th class="py-2 px-3 no-print">Actions</th>
@@ -414,7 +446,7 @@
 
         <!-- Total Amount Section -->
         <div class="flex justify-end total-section">
-            <div class="w-full sm:w-1/3 p-3 bg-gray-50 border border-gray-300 rounded-lg shadow-inner">
+            <div class="w-full sm:w-2/5 p-3 bg-gray-50 border border-gray-300 rounded-lg shadow-inner">
                 <div class="flex justify-between items-center text-base font-bold text-gray-900">
                     <span>Total Amount:</span>
                     <span id="totalAmount">₹0.00</span>
@@ -436,14 +468,14 @@
             ownerName: 'ABHIJIT PATEL',
             contactNumber: '+91 98791 46699',
             bankName: 'Central Bank of India', 
-
             bankIfscCode: 'CBIN0280533',
             bankBranchName: 'NAVLI',
             bankAccountNumber: '3184-757026',
             billNo: '',
             date: new Date().toISOString().slice(0, 10),
             customerName: '',
-            customerAddress: ''
+            customerAddress: '',
+            vehicleNumber: ''
         };
 
         let usageEntries = [
@@ -452,7 +484,7 @@
 
         // --- DOM Elements ---
         const billInputs = document.querySelectorAll(
-            '#companyName, #ownerName, #contactNumber, #bankName, #bankIfscCode, #bankBranchName, #bankAccountNumber, #billNo, #date, #customerName, #customerAddress'
+            '#companyName, #ownerName, #contactNumber, #bankName, #bankIfscCode, #bankBranchName, #bankAccountNumber, #billNo, #date, #customerName, #customerAddress, #vehicleNumber'
         );
         const usageEntriesTableBody = document.getElementById('usageEntriesTableBody');
         const addUsageEntryBtn = document.getElementById('addUsageEntryBtn');
