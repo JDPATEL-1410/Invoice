@@ -1,0 +1,619 @@
+<xaiArtifact artifact_id="47d9bd0d-c448-4577-b5e0-25d34f054e80" artifact_version_id="da5cb6ca-f4d4-489f-a630-f782de6fec20" title="index.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Indexed Bill Invoice</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+        html { font-family: 'Inter', sans-serif; }
+        
+        body {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+
+        .boxed-section {
+            border: 2px solid #4b5563;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f9fafb;
+            margin-bottom: 1.5rem;
+        }
+
+        .flexbox-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .grid-full {
+            width: 100%;
+        }
+
+        input, textarea {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        table {
+            width: 100%;
+            font-size: 0.85rem;
+            border-collapse: collapse;
+            border: 1px solid #d1d5db;
+        }
+
+        table th, table td {
+            padding: 0.5rem;
+            text-align: left;
+            border: 1px solid #d1d5db;
+        }
+
+        table th {
+            background-color: #f3f4f6;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        table input {
+            font-size: 0.8rem;
+            padding: 0.3rem;
+            border: none;
+        }
+
+        .total-section {
+            font-size: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .no-print {
+            display: block;
+        }
+
+        /* Mobile styles for 250px and below */
+        @media (max-width: 250px) {
+            body {
+                font-size: 12px;
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .boxed-section {
+                padding: 0.5rem;
+            }
+
+            input, textarea {
+                font-size: 0.75rem;
+                padding: 0.3rem;
+            }
+
+            label {
+                font-size: 0.7rem;
+            }
+
+            table {
+                font-size: 0.7rem;
+            }
+
+            table th, table td {
+                padding: 0.3rem;
+            }
+
+            table input {
+                font-size: 0.65rem;
+                padding: 0.2rem;
+            }
+
+            button {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .total-section {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Print-specific styles for PDF */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.5in;
+            }
+
+            body {
+                font-size: 10px !important;
+                line-height: 1.2 !important;
+                color: #000 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                width: 7in !important; /* A4 width minus margins */
+                margin: 0 auto !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .boxed-section {
+                border: 1px solid #000 !important;
+                padding: 8px !important;
+                background-color: #fff !important;
+                margin-bottom: 8px !important;
+            }
+
+            .print-header {
+                margin-bottom: 8px !important;
+                padding-bottom: 8px !important;
+                border-bottom: 1px solid #000 !important;
+                text-align: center !important;
+            }
+
+            .print-header h1 {
+                font-size: 18px !important;
+                margin: 0 auto !important;
+            }
+
+            .flexbox-grid {
+                gap: 4px !important;
+            }
+
+            input, textarea {
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                font-size: 9px !important;
+                border-bottom: 1px solid #000 !important;
+                width: 100% !important;
+                display: inline-block !important;
+            }
+
+            label {
+                font-size: 8px !important;
+                font-weight: 600 !important;
+                display: block !important;
+            }
+
+            table {
+                font-size: 8px !important;
+                margin: 8px 0 !important;
+                border: 1px solid #000 !important;
+                width: 100% !important;
+            }
+
+            table th, table td {
+                padding: 3px !important;
+                border: 1px solid #000 !important;
+            }
+
+            table th {
+                font-size: 7px !important;
+                background-color: #f3f4f6 !important;
+            }
+
+            table input {
+                font-size: 8px !important;
+            }
+
+            .total-section {
+                font-size: 10px !important;
+                text-align: right !important;
+                margin-top: 8px !important;
+            }
+
+            .total-section > div {
+                width: 30% !important;
+                margin-left: auto !important;
+            }
+
+            .print-footer {
+                font-size: 8px !important;
+                text-align: center !important;
+                margin-top: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100 font-sans antialiased text-gray-800">
+    <div class="container mx-auto p-4 bg-white shadow-lg rounded-lg">
+        <!-- Header and Title -->
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-4 border-b pb-3 print-header">
+            <h1 class="text-2xl font-bold text-gray-900 text-decoration-underline mb-2 sm:mb-0">INVOICE</h1>
+            <button
+                id="printBillBtn"
+                class="no-print bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1.5 px-4 rounded-lg shadow-md transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            >
+                Print Bill
+            </button>
+        </div>
+
+        <!-- Predefined Company Details in Boxed Section -->
+        <div class="boxed-section flexbox-grid">
+            <div class="grid-full space-y-1">
+                <label for="companyName" class="text-sm font-medium text-gray-600">Company Name</label>
+                <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    value="NILKANTH TRADER AND SERVICES"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="space-y-1">
+                <label for="ownerName" class="text-sm font-medium text-gray-600">Owner Name</label>
+                <input
+                    type="text"
+                    id="ownerName"
+                    name="ownerName"
+                    value="ABHIJIT PATEL"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="space-y-1">
+                <label for="contactNumber" class="text-sm font-medium text-gray-600">Contact Number</label>
+                <input
+                    type="text"
+                    id="contactNumber"
+                    name="contactNumber"
+                    value="+91 98791 46699"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="space-y-1">
+                <label for="bankName" class="text-sm font-medium text-gray-600">Bank Name</label>
+                <input
+                    type="text"
+                    id="bankName"
+                    name="bankName"
+                    value="Central Bank of India 
+"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="space-y-1">
+                <label for="bankIfscCode" class="text-sm font-medium text-gray-600">Bank IFSC Code</label>
+                <input
+                    type="text"
+                    id="bankIfscCode"
+                    name="bankIfscCode"
+                    value="CBIN0280533"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="space-y-1">
+                <label for="bankBranchName" class="text-sm font-medium text-gray-600">Branch Name</label>
+                <input
+                    type="text"
+                    id="bankBranchName"
+                    name="bankBranchName"
+                    value="NAVLI"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="grid-full space-y-1">
+                <label for="bankAccountNumber" class="text-sm font-medium text-gray-600">Bank Account Number</label>
+                <input
+                    type="text"
+                    id="bankAccountNumber"
+                    name="bankAccountNumber"
+                    value="3184-757026"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+        </div>
+
+        <!-- Bill Details Section -->
+        <div class="flexbox-grid mb-4">
+            <div class="space-y-1">
+                <label for="billNo" class="text-sm font-medium text-gray-600">Bill No.</label>
+                <input
+                    type="text"
+                    id="billNo"
+                    name="billNo"
+                    class="w-full p-1.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+            <div class="space-y-1">
+                <label for="date" class="text-sm font-medium text-gray-600">Date</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    class="w-full p-1.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+            <div class="grid-full space-y-1">
+                <label for="customerName" class="text-sm font-medium text-gray-600">Customer Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    name="customerName"
+                    class="w-full p-1.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+            <div class="grid-full space-y-1">
+                <label for="customerAddress" class="text-sm font-medium text-gray-600">Customer Address</label>
+                <textarea
+                    id="customerAddress"
+                    name="customerAddress"
+                    rows="2"
+                    class="w-full p-1.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                ></textarea>
+            </div>
+        </div>
+
+        <!-- Usage Entries Table -->
+        <div class="mb-6 overflow-x-auto">
+            <table class="min-w-full bg-white rounded-lg">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="py-2 px-3">Usage Date</th>
+                        <th class="py-2 px-3">Description</th>
+                        <th class="py-2 px-3">Qty (Hrs/Days)</th>
+                        <th class="py-2 px-3">Rate</th>
+                        <th class="py-2 px-3">Amount</th>
+                        <th class="py-2 px-3 no-print">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usageEntriesTableBody" class="divide-y divide-gray-200">
+                    <!-- Usage entries will be rendered here by JavaScript -->
+                </tbody>
+            </table>
+            <div class="flex justify-start mt-3">
+                <button
+                    id="addUsageEntryBtn"
+                    class="no-print bg-green-600 hover:bg-green-700 text-white font-semibold py-1.5 px-3 rounded-lg shadow-md transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Add Row
+                </button>
+            </div>
+        </div>
+
+        <!-- Total Amount Section -->
+        <div class="flex justify-end total-section">
+            <div class="w-full sm:w-1/3 p-3 bg-gray-50 border border-gray-300 rounded-lg shadow-inner">
+                <div class="flex justify-between items-center text-base font-bold text-gray-900">
+                    <span>Total Amount:</span>
+                    <span id="totalAmount">₹0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer for print-specific content -->
+        <div class="hidden print:block print-footer text-center mt-3">
+            <p>Generated on <span id="generatedDate"></span></p>
+            <p>This is a computer-generated bill and does not require a signature.</p>
+        </div>
+    </div>
+
+    <script>
+        // Data for bill details and usage entries
+        let billDetails = {
+            companyName: 'NILKANTH TRADER AND SERVICES',
+            ownerName: 'ABHIJIT PATEL',
+            contactNumber: '+91 98791 46699',
+            bankName: 'Central Bank of India', 
+
+            bankIfscCode: 'CBIN0280533',
+            bankBranchName: 'NAVLI',
+            bankAccountNumber: '3184-757026',
+            billNo: '',
+            date: new Date().toISOString().slice(0, 10),
+            customerName: '',
+            customerAddress: ''
+        };
+
+        let usageEntries = [
+            { id: 1, usageDate: '', description: '', quantity: 0, rate: 0, amount: 0 },
+        ];
+
+        // --- DOM Elements ---
+        const billInputs = document.querySelectorAll(
+            '#companyName, #ownerName, #contactNumber, #bankName, #bankIfscCode, #bankBranchName, #bankAccountNumber, #billNo, #date, #customerName, #customerAddress'
+        );
+        const usageEntriesTableBody = document.getElementById('usageEntriesTableBody');
+        const addUsageEntryBtn = document.getElementById('addUsageEntryBtn');
+        const printBillBtn = document.getElementById('printBillBtn');
+        const totalAmountSpan = document.getElementById('totalAmount');
+        const generatedDateSpan = document.getElementById('generatedDate');
+
+        // --- Functions ---
+
+        // Renders all usage entries into the table
+        function renderUsageEntries() {
+            usageEntriesTableBody.innerHTML = '';
+            usageEntries.forEach(entry => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="py-2 px-3 whitespace-nowrap">
+                        <input
+                            type="date"
+                            name="usageDate"
+                            value="${entry.usageDate}"
+                            data-id="${entry.id}"
+                            class="w-full p-1 focus:ring-blue-400 focus:border-blue-400"
+                        />
+                    </td>
+                    <td class="py-2 px-3">
+                        <input
+                            type="text"
+                            name="description"
+                            value="${entry.description}"
+                            data-id="${entry.id}"
+                            class="w-full p-1 focus:ring-blue-400 focus:border-blue-400"
+                        />
+                    </td>
+                    <td class="py-2 px-3 whitespace-nowrap">
+                        <input
+                            type="number"
+                            name="quantity"
+                            value="${entry.quantity}"
+                            data-id="${entry.id}"
+                            class="w-full p-1 text-right focus:ring-blue-400 focus:border-blue-400"
+                        />
+                    </td>
+                    <td class="py-2 px-3 whitespace-nowrap">
+                        <input
+                            type="number"
+                            name="rate"
+                            value="${entry.rate}"
+                            data-id="${entry.id}"
+                            class="w-full p-1 text-right focus:ring-blue-400 focus:border-blue-400"
+                        />
+                    </td>
+                    <td class="py-2 px-3 whitespace-nowrap text-right font-medium amount-cell" data-id="${entry.id}">
+                        ₹${entry.amount.toFixed(2)}
+                    </td>
+                    <td class="py-2 px-3 whitespace-nowrap no-print">
+                        <button
+                            class="remove-row-btn text-red-600 hover:text-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded-md p-1"
+                            data-id="${entry.id}"
+                            title="Remove row"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1zm2 3a1 1 0 011-1h0a1 1 0 110 2h0a1 1 0 01-1-1zm2 3a1 1 0 011-1h0a1 1 0 110 2h0a1 1 0 01-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </td>
+                `;
+                usageEntriesTableBody.appendChild(row);
+            });
+            attachRowEventListeners();
+            updateTotalAmount();
+        }
+
+        // Calculates and updates total amount
+        function updateTotalAmount() {
+            let newTotal = 0;
+            usageEntries.forEach(entry => {
+                const amount = parseFloat(entry.quantity || 0) * parseFloat(entry.rate || 0);
+                entry.amount = amount;
+                newTotal += amount;
+            });
+            totalAmountSpan.textContent = `₹${newTotal.toFixed(2)}`;
+
+            document.querySelectorAll('.amount-cell').forEach(cell => {
+                const id = parseInt(cell.dataset.id);
+                const entry = usageEntries.find(e => e.id === id);
+                if (entry) {
+                    cell.textContent = `₹${entry.amount.toFixed(2)}`;
+                }
+            });
+        }
+
+        // Handles changes in bill details inputs
+        function handleBillDetailsChange(event) {
+            const { name, value } = event.target;
+            billDetails[name] = value;
+        }
+
+        // Handles changes in usage entry inputs
+        function handleUsageEntryChange(event) {
+            const { name, value, dataset } = event.target;
+            const id = parseInt(dataset.id);
+            const entryIndex = usageEntries.findIndex(entry => entry.id === id);
+            if (entryIndex !== -1) {
+                usageEntries[entryIndex][name] = value;
+                updateTotalAmount();
+            }
+        }
+
+        // Adds a new usage entry row
+        function addUsageEntry() {
+            const newId = usageEntries.length > 0 ? Math.max(...usageEntries.map(e => e.id)) + 1 : 1;
+            usageEntries.push({ id: newId, usageDate: '', description: '', quantity: 0, rate: 0, amount: 0 });
+            renderUsageEntries();
+        }
+
+        // Removes a usage entry row
+        function removeUsageEntry(idToRemove) {
+            usageEntries = usageEntries.filter(entry => entry.id !== idToRemove);
+            renderUsageEntries();
+        }
+
+        // Attaches event listeners to table rows
+        function attachRowEventListeners() {
+            usageEntriesTableBody.querySelectorAll('input').forEach(input => {
+                input.removeEventListener('input', handleUsageEntryChange);
+                input.addEventListener('input', handleUsageEntryChange);
+            });
+            usageEntriesTableBody.querySelectorAll('.remove-row-btn').forEach(button => {
+                button.removeEventListener('click', (e) => removeUsageEntry(parseInt(e.currentTarget.dataset.id)));
+                button.addEventListener('click', (e) => removeUsageEntry(parseInt(e.currentTarget.dataset.id)));
+            });
+        }
+
+        // --- Initial Setup ---
+        window.onload = function() {
+            // Populate bill details
+            billInputs.forEach(input => {
+                if (billDetails[input.name] !== undefined) {
+                    input.value = billDetails[input.name];
+                }
+                if (input.id !== 'companyName' && input.id !== 'ownerName' && input.id !== 'contactNumber' &&
+                    input.id !== 'bankName' && input.id !== 'bankIfscCode' && input.id !== 'bankBranchName' &&
+                    input.id !== 'bankAccountNumber') {
+                    input.addEventListener('input', handleBillDetailsChange);
+                }
+            });
+
+            // Set current date if empty
+            const dateInput = document.getElementById('date');
+            if (!dateInput.value) {
+                dateInput.value = new Date().toISOString().slice(0, 10);
+            }
+
+            renderUsageEntries();
+            generatedDateSpan.textContent = new Date().toLocaleDateString('en-GB', {
+                day: '2-digit', month: '2-digit', year: 'numeric'
+            });
+
+            addUsageEntryBtn.addEventListener('click', addUsageEntry);
+            printBillBtn.addEventListener('click', () => window.print());
+        };
+    </script>
+</body>
+</html>
