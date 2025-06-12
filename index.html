@@ -168,12 +168,12 @@
         @media print {
             @page {
                 size: A4;
-                margin: 0.3in;
+                margin: 0.5in; /* Adjusted margin for better readability */
             }
 
             body {
-                font-size: 8px !important;
-                line-height: 1.1 !important;
+                font-size: 18px !important; /* Set to medium size for better readability */
+                line-height: 1.2 !important;
                 color: #000 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
@@ -206,8 +206,15 @@
             }
 
             .print-header h1 {
-                font-size: 14px !important;
+                font-size: 20px !important; /* Increased font size for the title */
                 margin: 0 auto !important;
+            }
+
+            .company-name {
+                font-size: 20px !important; /* Highlighted company name size */
+                font-weight: bold !important; /* Highlighted */
+                color: #000 !important; /* Highlighted */
+                margin-top: 10px !important; /* Space below the title */
             }
 
             .flexbox-grid {
@@ -218,20 +225,20 @@
                 border: none !important;
                 background: transparent !important;
                 padding: 0 !important;
-                font-size: 7px !important;
+                font-size: 8px !important;
                 border-bottom: 1px solid #000 !important;
                 width: 100% !important;
                 display: inline-block !important;
             }
 
             label {
-                font-size: 7px !important;
+                font-size: 8px !important;
                 font-weight: 600 !important;
                 display: block !important;
             }
 
             table {
-                font-size: 7px !important;
+                font-size: 10px !important; /* Increased font size for table */
                 margin: 4px 0 !important;
                 border: 1px solid #000 !important;
                 width: 100% !important;
@@ -243,16 +250,16 @@
             }
 
             table th {
-                font-size: 6px !important;
+                font-size: 9px !important;
                 background-color: #f3f4f6 !important;
             }
 
             table input {
-                font-size: 7px !important;
+                font-size: 8px !important;
             }
 
             .total-section {
-                font-size: 8px !important;
+                font-size: 10px !important;
                 text-align: right !important;
                 margin-top: 4px !important;
             }
@@ -263,7 +270,7 @@
             }
 
             .print-footer {
-                font-size: 7px !important;
+                font-size: 8px !important;
                 text-align: center !important;
                 margin-top: 5px !important;
             }
@@ -283,20 +290,14 @@
             </button>
         </div>
 
+        <!-- Company Name Highlighted -->
+        <div class="company-name text-center">
+            <span>NILKANTH TRADER AND SERVICES</span>
+        </div>
+
         <!-- Predefined Company Details in Boxed Section -->
         <div class="boxed-section flexbox-grid">
             <div class="grid-full space-y-1">
-                <label for="companyName" class="text-sm font-medium text-gray-600">Company Name</label>
-                <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    value="NILKANTH TRADER AND SERVICES"
-                    readonly
-                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
-                />
-            </div>
-            <div class="space-y-1">
                 <label for="ownerName" class="text-sm font-medium text-gray-600">Owner Name</label>
                 <input
                     type="text"
@@ -324,8 +325,7 @@
                     type="text"
                     id="bankName"
                     name="bankName"
-                    value="Central Bank of India 
-"
+                    value="Central Bank of India"
                     readonly
                     class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
                 />
@@ -359,6 +359,17 @@
                     id="bankAccountNumber"
                     name="bankAccountNumber"
                     value="3184-757026"
+                    readonly
+                    class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
+                />
+            </div>
+            <div class="grid-full space-y-1">
+                <label for="panCardNumber" class="text-sm font-medium text-gray-600">PAN Card Number</label>
+                <input
+                    type="text"
+                    id="panCardNumber"
+                    name="panCardNumber"
+                    value="AOJPP5506R"
                     readonly
                     class="w-full p-1.5 bg-gray-100 cursor-not-allowed"
                 />
@@ -471,6 +482,7 @@
             bankIfscCode: 'CBIN0280533',
             bankBranchName: 'NAVLI',
             bankAccountNumber: '3184-757026',
+            panCardNumber: 'AOJPP5506R',
             billNo: '',
             date: new Date().toISOString().slice(0, 10),
             customerName: '',
@@ -484,7 +496,7 @@
 
         // --- DOM Elements ---
         const billInputs = document.querySelectorAll(
-            '#companyName, #ownerName, #contactNumber, #bankName, #bankIfscCode, #bankBranchName, #bankAccountNumber, #billNo, #date, #customerName, #customerAddress, #vehicleNumber'
+            '#companyName, #ownerName, #contactNumber, #bankName, #bankIfscCode, #bankBranchName, #bankAccountNumber, #panCardNumber, #billNo, #date, #customerName, #customerAddress, #vehicleNumber'
         );
         const usageEntriesTableBody = document.getElementById('usageEntriesTableBody');
         const addUsageEntryBtn = document.getElementById('addUsageEntryBtn');
@@ -627,7 +639,7 @@
                 }
                 if (input.id !== 'companyName' && input.id !== 'ownerName' && input.id !== 'contactNumber' &&
                     input.id !== 'bankName' && input.id !== 'bankIfscCode' && input.id !== 'bankBranchName' &&
-                    input.id !== 'bankAccountNumber') {
+                    input.id !== 'bankAccountNumber' && input.id !== 'panCardNumber') {
                     input.addEventListener('input', handleBillDetailsChange);
                 }
             });
